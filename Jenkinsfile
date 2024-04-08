@@ -1,24 +1,36 @@
 pipeline {
     agent any
     stages {
+        stage('Checkout') {
+            steps {
+                // Clona el repositorio de Git donde está tu código fuente
+                git 'https://github.com/Kidbuut/nodejs-helloworld-api.git'
+            }
+        }
+        stage('Install dependencies') {
+            steps {
+                // Instala las dependencias del proyecto
+                sh 'npm install'
+            }
+        }
         stage('Build') {
             steps {
-                // Aquí irían los comandos para construir tu aplicación Node.js
-                sh 'npm install'
+                // Construye la aplicación (aquí suponemos que hay un script 'build' en package.json)
+                sh 'npm run build'
             }
         }
         stage('Test') {
             steps {
-                // Aquí irían los comandos para ejecutar las pruebas de tu aplicación Node.js
+                // Ejecuta las pruebas del proyecto (aquí suponemos que hay un script 'test' en package.json)
                 sh 'npm test'
             }
         }
         stage('Deploy') {
             steps {
-                // Aquí irían los comandos para desplegar tu aplicación Node.js
-                // Por ejemplo, puedes usar ssh para conectarte a un servidor remoto y desplegarla
-                sh 'ssh user@server "npm deploy"'
+                // Despliega la aplicación (aquí suponemos que hay un script 'deploy' en package.json)
+                sh 'npm run deploy'
             }
         }
     }
+    
 }
