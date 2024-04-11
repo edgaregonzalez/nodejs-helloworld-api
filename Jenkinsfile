@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages {
-        stage('Install Dependencies') {
+        stage('Buil') {
             steps {
                 // Ejecuta el comando npm install para instalar las dependencias
                 sh 'npm install'
