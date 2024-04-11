@@ -1,29 +1,25 @@
-pipeline {
-    agent any
-    
+pipeline{
+    agent any tools{
+        nodejs 'nodejs'
+    }
     stages {
-        stage('Buil') {
+        stage('Build') {
             steps {
-                // Ejecuta el comando npm install para instalar las dependencias
+                echo "Ejecutar NPM install"
                 sh 'npm install'
             }
         }
-        
+
         stage('Test') {
             steps {
-                // Ejecuta el comando npm test para ejecutar las pruebas
-                // REALIZAR PRUEBA2
+                echo "Ejecutar NPM Test push"
                 sh 'npm test'
             }
         }
+
+
     }
-    
-    post {
-        success {
-            echo 'Deployment successful!'
-        }
-        failure {
-            echo 'Deployment failed!'
-        }
-    }
+
+
 }
+         
