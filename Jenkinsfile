@@ -12,6 +12,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Ejecuta el comando npm test para ejecutar las pruebas
+                // REALIZAR PRUEBA
                 sh 'npm test'
             }
         }
