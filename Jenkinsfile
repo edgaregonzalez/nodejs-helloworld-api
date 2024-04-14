@@ -1,5 +1,6 @@
-pipeline{
-    agent any tools{
+pipeline {
+    agent any 
+    tools {
         nodejs 'nodejs'
     }
     stages {
@@ -16,7 +17,6 @@ pipeline{
                 sh 'npm test'
             }
         }
-
 
     }
 
